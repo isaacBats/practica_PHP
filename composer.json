@@ -9,5 +9,10 @@
             "email": "disa.indus@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "PlatziPHP\\": "src/"
+        }
+    }
 }
