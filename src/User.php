@@ -4,24 +4,43 @@ namespace PlatziPHP;
 
 class User{
 	
-	private $email;
+	/**
+	 * @type string
+	 */
+	protected $email;
 
-	private $password;
+	/**
+	 * @type string
+	 */
+	protected $password;
 
-	private $firstName;
+	/**
+	 * @type string
+	 */
+	protected $firstName;
 
-	private $lastName;
+	/**
+	 * @var string
+	 */
+	protected $lastName;
 
 	public function __construct($email, $password){
 		$this->email = $email;
 		$this->password = password_hash($password, PASSWORD_DEFAULT);
 	}
 
+	/**
+	 * @param $firsrName
+	 * @param $lastName
+	 */
 	public function setName($firstName, $lastName){
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getFirsName(){
 
 		return 'by '.$this->firstName;

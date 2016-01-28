@@ -9,10 +9,10 @@ $user->setName('isaac', 'batista');
 //$user->$firstName;
 
 //Lo correctp
-//echo $user->getFirsName();
-//echo PHP_EOL;
+echo $user->getLastName();
+echo PHP_EOL;
 
 
 
 
-var_dump($user);
+//var_dump($user);
