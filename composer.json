@@ -1,0 +1,13 @@
+{
+    "name": "isaacbats/php-laravel",
+    "description": "Proyecto php - microframework con librerias de laravel",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "isaacBats",
+            "email": "disa.indus@gmail.com"
+        }
+    ],
+    "require": {}
+}
