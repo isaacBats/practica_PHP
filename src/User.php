@@ -30,8 +30,8 @@ class User{
 	}
 
 	/**
-	 * @param $firsrName
-	 * @param $lastName
+	 * @param $firsrName string
+	 * @param $lastName string
 	 */
 	public function setName($firstName, $lastName){
 		$this->firstName = $firstName;
@@ -41,8 +41,8 @@ class User{
 	/**
 	 * @return string
 	 */
-	public function getFirsName(){
+	public function getFirstName(){
 
-		return 'by '.$this->firstName;
+		return $this->firstName;
 	}
 }

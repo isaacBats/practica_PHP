@@ -9,6 +9,7 @@ $user->setName('isaac', 'batista');
 //$user->$firstName;
 
 //Lo correctp
+echo $user->getFirstName();
 echo $user->getLastName();
 echo PHP_EOL;
 
