@@ -1,13 +1,15 @@
-<?php 
+<?php
+
 namespace PlatziPHP\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use PlatziPHP\FakeDatabase;
 use PlatziPHP\Http\Views\View;
 
 
-class HomeController{
+class HomeController extends Controller{
 
 	/**
 	 * @type FakeDatabase
@@ -23,24 +25,22 @@ class HomeController{
 		$posts = $this->db->posts();
 		$first = $posts->first();
 
-		/*return View::make('home', [
-			'posts' => $posts, 
-			'firstPost' => $first
-		]);*/
-
 		$view = new View('home', [
 			'posts' => $posts, 
 			'firstPost' => $first
 		]);
 
 		return $view->render();
-
-		/*$response = $view->render();
-		$response->send();*/
-
-		//var_dump($request);
-		// return 'Hello at '. 
-		// $request->getRequestUri().
-		// ' from controller!';
 	}
+
+	public function show($id)
+    {
+        $posts = $this->db->posts();
+
+        $view = new View('post_details', [
+            'post' => $posts->get($id)
+        ]);
+
+        return $view->render();
+    }
 }
