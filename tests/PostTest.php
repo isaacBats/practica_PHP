@@ -1,11 +1,14 @@
 <?php 
 
+use PlatziPHP\Domain\Author;
+use PlatziPHP\Domain\Post;
+
 class PostTest extends PHPUnit_Framework_TestCase{
 
 	/** @test */
 	function it_gives_us_the_author_name(){
 
-		$author = new PlatziPHP\Author(
+		$author = new Author(
 				'email@foo.com',
 				'1234',
 				'AUTOR_DE_PLATZI'
@@ -13,7 +16,7 @@ class PostTest extends PHPUnit_Framework_TestCase{
 
 		$author->setName('Isaac', 'Batista');
 
-		$post = new PlatziPHP\Post($author, 'A Title', 'A post body');
+		$post = new Post($author, 'A Title', 'A post body');
 
 		$this->assertEquals(
 				'by Isaac',

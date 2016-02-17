@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-namespace PlatziPHP;
+namespace PlatziPHP\Domain;
 
 
 class Author extends User{

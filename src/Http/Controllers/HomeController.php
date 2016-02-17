@@ -5,8 +5,8 @@ namespace PlatziPHP\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use PlatziPHP\FakeDatabase;
 use PlatziPHP\Http\Views\View;
+use PlatziPHP\Infrastructure\FakeDatabase;
 
 
 class HomeController extends Controller{
