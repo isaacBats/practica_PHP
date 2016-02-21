@@ -3,10 +3,18 @@
 namespace PlatziPHP\Infrastructure;
 
 use Illuminate\Support\Collection;
+use PlatziPHP\Domain\EntityNotFound;
 use PlatziPHP\Domain\Post;
 
-class PostRepository {
+class PostRepository extends BaseRepository {
 	
+	protected function table(){
+
+		return 'posts';
+	}
+
+
+
 	public function all()	{
 		
 		$pdo = $this->getPDO();
@@ -27,14 +35,14 @@ class PostRepository {
 
 		foreach ($results as $result) {
 			
-			$post = $this->mapPost($result);
+			$post = $this->mapEntity($result);
 			$posts->push($post);
 		}
 
 		return $posts;
 	}
 
-	private function mapPost(array $result){
+	protected function mapEntity(array $result){
 
 		return new Post(
 				$result['author_id'],
@@ -44,39 +52,7 @@ class PostRepository {
 			);
 	}
 
-	public function find($id){
-
-		$pdo = $this->getPDO();
-
-		$statement = $pdo->prepare(
-			'SELECT * FROM posts WHERE id = :id'
-		);
-
-		$statement->bindParam(':id', $id, \PDO::PARAM_INT);
-
-		$statement->execute();
-		$result = $statement->fetch();
-
-		if($result === false){
-
-			throw new \OutOfBoundsException("Post $id does not exist.");
-		}
-
-		return $this->mapPost($result);
-	}
-
-	/**
-	 * @return \PDO
-	 */
-	private function getPDO(){
-
-		return new \PDO(
-			'mysql:host=localhost;dbname=php_curso_guido', 
-			'sa', 
-			'1234'
-		);
-	}
-
+	
 	public function search($query){
 
 		$pdo = $this->getPDO();
